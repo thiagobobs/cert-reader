@@ -1,0 +1,20 @@
+<html>
+	<body>
+		<button type="button" id="sendButton">Send</button>
+		<p><div id="response"></div></p>
+	</body>
+	<script type="text/javascript">
+		const http = new XMLHttpRequest();
+
+		document.getElementById("sendButton").addEventListener("click", 
+			function() {
+				http.open("GET", "http://localhost:8400");
+				http.send();
+
+				http.onreadystatechange = (event) => {
+					document.getElementById("response").innerHTML = http.responseText;
+				}
+			}
+		)
+	</script>
+</html>
